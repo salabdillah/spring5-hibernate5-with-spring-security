@@ -4,7 +4,7 @@ All you need to build this project is:
 1. Java 9, 
 2. Maven 3.5.3, 
 3. Wildfly 11,
-4. Eclipse Oxygen or IntelliJ
+4. MySQL [5.6](https://dev.mysql.com/downloads/mysql/5.6.html) or [5.7](https://dev.mysql.com/downloads/mysql/5.7.html)
 
 The application this project produces is designed to be run on JBoss WildFly and Jetty.
 
