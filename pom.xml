@@ -13,8 +13,8 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<maven.compiler.source>9</maven.compiler.source>
-		<maven.compiler.target>9</maven.compiler.target>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<springframework.version>5.0.6.RELEASE</springframework.version>
 		<springsecurity.version>5.0.5.RELEASE</springsecurity.version>
@@ -131,23 +131,25 @@
 	</dependencies>
 
 	<build>
-		<finalName>Cinema21Service</finalName>
-		<directory>target</directory>
-		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
-		<outputDirectory>target/classes</outputDirectory>
+<!-- 		<finalName>Cinema21Service</finalName> -->
+<!-- 		<directory>target</directory> -->
+<!-- 		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory> -->
+<!-- 		<outputDirectory>target/classes</outputDirectory> -->
 		<pluginManagement>
 			<plugins>
 				<!-- Run with Jetty -->
 				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
-					<version>9.4.8.v20171121</version>
+					<version>9.4.10.v20180503</version>
+					<!-- <version>9.4.8.v20171121</version> -->
 					<!-- <version>9.2.11.v20150529</version> -->
 					<configuration>
-						<webAppConfig>
+						<webApp>
 							<contextPath>/${project.artifactId}</contextPath>
 							<allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
-						</webAppConfig>
+						</webApp>
+						<war>${project.basedir}/target/${project.artifactId}.war</war>
 						<scanIntervalSeconds>5</scanIntervalSeconds>
 					</configuration>
 				</plugin>
@@ -161,24 +163,24 @@
 					</configuration>
 				</plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<version>2.10</version>
-					<configuration>
-						<downloadSources>true</downloadSources>
-						<downloadJavadocs>true</downloadJavadocs>
-						<wtpversion>2.0</wtpversion>
-						<wtpContextName>${project.artifactId}</wtpContextName>
-					</configuration>
-				</plugin>
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-eclipse-plugin</artifactId> -->
+<!-- 					<version>2.10</version> -->
+<!-- 					<configuration> -->
+<!-- 						<downloadSources>true</downloadSources> -->
+<!-- 						<downloadJavadocs>true</downloadJavadocs> -->
+<!-- 						<wtpversion>2.0</wtpversion> -->
+<!-- 						<wtpContextName>${project.artifactId}</wtpContextName> -->
+<!-- 					</configuration> -->
+<!-- 				</plugin> -->
 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>3.0.0</version>
 					<configuration>
-						<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+<!-- 						<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> -->
 						<resources>
 							<resource>
 								<directory>${project.basedir}/src/main/resources</directory>
