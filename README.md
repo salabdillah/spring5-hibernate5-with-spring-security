@@ -1,7 +1,7 @@
 System requirements
 -------------------
 All you need to build this project is:
-1. Java 9, 
+1. Java 8, 
 2. Maven 3.5.3, 
 3. Wildfly 11,
 4. MySQL [5.6](https://dev.mysql.com/downloads/mysql/5.6.html) or [5.7](https://dev.mysql.com/downloads/mysql/5.7.html)
