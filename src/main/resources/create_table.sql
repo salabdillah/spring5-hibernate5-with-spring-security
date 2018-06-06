@@ -1,5 +1,3 @@
-Create database cin21service;
-Use cin21service;
 /*All User's gets stored in APP_USER table*/
 create table APP_USER (
    id BIGINT NOT NULL AUTO_INCREMENT,
@@ -42,7 +40,7 @@ VALUES ('DBA');
   
 /* Populate one Admin User which will further create other users for the application using GUI */
 INSERT INTO APP_USER(sso_id, password, first_name, last_name, email)
-VALUES ('sam','$2a$10$0IBkLByp09eONC3vRJXsR.Wg/dk3OYq4dL7F0pSmSmyvTOnHSaMiS', 'Sam','Smith','samy@xyz.com');
+VALUES ('sam','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Sam','Smith','samy@xyz.com');
   
   
 /* Populate JOIN Table */

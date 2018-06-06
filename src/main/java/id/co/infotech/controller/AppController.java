@@ -3,6 +3,7 @@ package id.co.infotech.controller;
 import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -198,10 +199,14 @@ public class AppController {
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null){    
-			//new SecurityContextLogoutHandler().logout(request, response, auth);
-			persistentTokenBasedRememberMeServices.logout(request, response, auth);
-			SecurityContextHolder.getContext().setAuthentication(null);
+		try{
+			if (auth != null){
+				//new SecurityContextLogoutHandler().logout(request, response, auth);
+				SecurityContextHolder.getContext().setAuthentication(null);
+				persistentTokenBasedRememberMeServices.logout(request, response, auth);
+			}
+		} catch (NoResultException nre){
+			//Ignore this because as per your logic this is ok!
 		}
 		return "redirect:/login?logout";
 	}

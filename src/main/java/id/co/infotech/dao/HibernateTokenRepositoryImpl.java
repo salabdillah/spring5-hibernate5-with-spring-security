@@ -2,8 +2,6 @@ package id.co.infotech.dao;
 
 import java.util.Date;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
@@ -37,9 +35,7 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
 	public PersistentRememberMeToken getTokenForSeries(String seriesId) {
 		logger.info("Fetch Token if any for seriesId : {}", seriesId);
 		try {
-			Criteria crit = createEntityCriteria();
-			crit.add(Restrictions.eq("series", seriesId));
-			PersistentLogin persistentLogin = (PersistentLogin) crit.uniqueResult();
+			PersistentLogin persistentLogin = (PersistentLogin) find("series", seriesId);
 
 			return new PersistentRememberMeToken(persistentLogin.getUsername(), persistentLogin.getSeries(),
 					persistentLogin.getToken(), persistentLogin.getLast_used());
@@ -52,9 +48,7 @@ public class HibernateTokenRepositoryImpl extends AbstractDao<String, Persistent
 	@Override
 	public void removeUserTokens(String username) {
 		logger.info("Removing Token if any for user : {}", username);
-		Criteria crit = createEntityCriteria();
-		crit.add(Restrictions.eq("username", username));
-		PersistentLogin persistentLogin = (PersistentLogin) crit.uniqueResult();
+		PersistentLogin persistentLogin = (PersistentLogin) find("username", username);
 		if (persistentLogin != null) {
 			logger.info("rememberMe was selected");
 			delete(persistentLogin);
