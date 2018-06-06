@@ -16,7 +16,7 @@
 		<maven.compiler.source>9</maven.compiler.source>
 		<maven.compiler.target>9</maven.compiler.target>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<springframework.version>5.0.3.RELEASE</springframework.version>
+		<springframework.version>5.0.6.RELEASE</springframework.version>
         <springsecurity.version>4.2.3.RELEASE</springsecurity.version>
         <hibernate.version>5.3.0.Final</hibernate.version>
         <mysql.connector.version>5.1.39</mysql.connector.version>
